@@ -16,11 +16,10 @@ use blink_proto as rp;
 fn main() -> anyhow::Result<()> {
     let args: Vec<String> = env::args().skip(1).collect();
 
-    if args.is_empty() {
-        println!("USAGE: blink-cli /dev/tty true 800");
-        anyhow::bail!("Please provide a serial port as argument (ex: /dev/ttyACM0)");
+    let mut port_name = "/dev/tty.usbmodem142303";
+    if !args.is_empty() {
+        port_name = &args[0];
     }
-    let port_name = &args[0];
 
     let blinking = if let Some(on_off) = args.get(1) {
         on_off.parse().unwrap()

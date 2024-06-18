@@ -21,6 +21,24 @@
                     "programBinary": "rp2040-rtic-usb-serial-blinky/target/thumbv6m-none-eabi/debug/rp2040-rtic-usb-serial-blinky"
                 }
             ]
+        },
+        {
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "debug-rp2040-blink",
+            "cwd": "${workspaceFolder}",
+            "connectUnderReset": false,
+            "chip": "RP2040",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": true
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "rp2040-blink/target/thumbv6m-none-eabi/debug/rp2040-blink"
+                }
+            ]
         }
     ]
 }
